@@ -2,6 +2,7 @@
 
 <ng-container *ngFor="let item of viewModel.itemList; let i=index">
 
+  <hr *ngIf="viewModel.levelOf(item) === 0">
   <label>{{ "＞".repeat(viewModel.levelOf(item)) }}</label>
   <label>{{ item.title }}</label>
   <label *ngIf="item.isChecked">[O]</label>

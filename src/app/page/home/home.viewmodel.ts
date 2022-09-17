@@ -60,6 +60,8 @@ export function getItems(): MindMapItem[] {
 
   result = result.concat(htmlList())
   result = result.concat(tsList())
+  result = result.concat(rxjsList())
+  result = result.concat(workflow())
 
   return result;
 }
@@ -105,6 +107,7 @@ function htmlList(): MindMapItem[] {
 }
 
 function tsList(): MindMapItem[] {
+  // https://angular.io/cli/generate
   let result: MindMapItem[] = [];
   {
     let parent = new MindMapItem({title: 'ts'})
@@ -133,3 +136,70 @@ function tsList(): MindMapItem[] {
 
   return result
 }
+
+function rxjsList(): MindMapItem[] {
+  // https://rxjs.dev/api
+  let result: MindMapItem[] = [];
+  {
+    let parent = new MindMapItem({title: 'rxjs'})
+    result.push(parent)
+    {
+      let child = new MindMapItem({title: 'debounceTime'})
+      child.parentId = parent.id
+      result.push(child)
+    }
+    {
+      let child = new MindMapItem({title: 'pipe'})
+      child.parentId = parent.id
+      result.push(child)
+    }
+    {
+      let child = new MindMapItem({title: 'map'})
+      child.parentId = parent.id
+      result.push(child)
+    }
+    {
+      let child = new MindMapItem({title: 'merge'})
+      child.parentId = parent.id
+      result.push(child)
+    }
+    {
+      let child = new MindMapItem({title: 'filter'})
+      child.parentId = parent.id
+      result.push(child)
+    }
+  }
+
+  return result
+}
+
+function workflow(): MindMapItem[] {
+  let result: MindMapItem[] = [];
+  {
+    let parent = new MindMapItem({title: 'workflow'})
+    result.push(parent)
+    {
+      let child = new MindMapItem({title: 'mvvm'})
+      child.parentId = parent.id
+      result.push(child)
+    }
+    {
+      let child = new MindMapItem({title: 'binder'})
+      child.parentId = parent.id
+      result.push(child)
+    }
+    {
+      let child = new MindMapItem({title: 'viewmodel'})
+      child.parentId = parent.id
+      result.push(child)
+    }
+    {
+      let child = new MindMapItem({title: 'action'})
+      child.parentId = parent.id
+      result.push(child)
+    }
+  }
+
+  return result
+}
+
