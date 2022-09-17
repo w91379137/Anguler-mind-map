@@ -43,6 +43,13 @@ export function getItems(): MindMapItem[] {
 
   let result: MindMapItem[] = [];
 
+  result = result.concat(htmlList())
+
+  return result;
+}
+
+function htmlList(): MindMapItem[] {
+  let result: MindMapItem[] = [];
   {
     let parent = new MindMapItem({title: 'html'})
     result.push(parent)
