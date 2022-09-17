@@ -59,6 +59,7 @@ export function getItems(): MindMapItem[] {
   let result: MindMapItem[] = [];
 
   result = result.concat(htmlList())
+  result = result.concat(tsList())
 
   return result;
 }
@@ -96,6 +97,36 @@ function htmlList(): MindMapItem[] {
       let child = new MindMapItem({title: 'ng-container'})
       child.parentId = parent.id
       child.isChecked = true
+      result.push(child)
+    }
+  }
+
+  return result
+}
+
+function tsList(): MindMapItem[] {
+  let result: MindMapItem[] = [];
+  {
+    let parent = new MindMapItem({title: 'ts'})
+    result.push(parent)
+    {
+      let child = new MindMapItem({title: 'component'})
+      child.parentId = parent.id
+      result.push(child)
+    }
+    {
+      let child = new MindMapItem({title: 'directive'})
+      child.parentId = parent.id
+      result.push(child)
+    }
+    {
+      let child = new MindMapItem({title: 'pipe'})
+      child.parentId = parent.id
+      result.push(child)
+    }
+    {
+      let child = new MindMapItem({title: 'service'})
+      child.parentId = parent.id
       result.push(child)
     }
   }
