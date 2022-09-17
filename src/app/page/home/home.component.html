@@ -2,9 +2,11 @@
 
 <ng-container *ngFor="let item of viewModel.itemList; let i=index">
 
+  <label>{{ "＞".repeat(viewModel.levelOf(item)) }}</label>
   <label>{{ item.title }}</label>
-  <div *ngIf="item.isChecked">O</div>
-  <div *ngIf="!item.isChecked">X</div>
+  <label *ngIf="item.isChecked">[O]</label>
+  <label *ngIf="!item.isChecked">[X]</label>
+  <br>
 
 </ng-container>
 
