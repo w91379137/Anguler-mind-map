@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { getItems, HomeViewModel } from './home.viewmodel';
+import { FrontendAngulerService } from 'src/app/service/frontend-anguler/frontend-anguler.service';
+import { HomeViewModel } from './home.viewmodel';
 
 @Component({
   selector: 'app-home',
@@ -12,13 +13,13 @@ export class HomeComponent implements OnInit {
 
   // ====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====
 
-  constructor() {
-    this.viewModel.itemList = getItems()
+  constructor(
+    private frontendAnguler: FrontendAngulerService
+  ) {
+    this.viewModel.itemList = frontendAnguler.model.items
   }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void { }
 
   // ====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====
 
