@@ -16,10 +16,10 @@ export function getItems(): MindMapItem[] {
 
   let result: MindMapItem[] = [];
 
-  result = result.concat(htmlList())
-  result = result.concat(tsList())
-  result = result.concat(rxjsList())
-  result = result.concat(workflow())
+  result = result.concat(htmlList().list)
+  result = result.concat(tsList().list)
+  result = result.concat(rxjsList().list)
+  result = result.concat(workflow().list)
 
   return result;
 }

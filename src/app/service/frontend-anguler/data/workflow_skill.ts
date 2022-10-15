@@ -1,31 +1,33 @@
-import { MindMapItem } from "../mind-map-item";
+import { MindMapItem, PartialMindMap } from "../mind-map-item";
 
-export function workflow(): MindMapItem[] {
-  let result: MindMapItem[] = [];
+export function workflow(): PartialMindMap {
+  let itemList: MindMapItem[] = [];
+
+  let parent = new MindMapItem({title: 'workflow'})
+  itemList.push(parent)
   {
-    let parent = new MindMapItem({title: 'workflow'})
-    result.push(parent)
-    {
-      let child = new MindMapItem({title: 'mvvm'})
-      child.parentId = parent.id
-      result.push(child)
-    }
-    {
-      let child = new MindMapItem({title: 'binder'})
-      child.parentId = parent.id
-      result.push(child)
-    }
-    {
-      let child = new MindMapItem({title: 'viewmodel'})
-      child.parentId = parent.id
-      result.push(child)
-    }
-    {
-      let child = new MindMapItem({title: 'action'})
-      child.parentId = parent.id
-      result.push(child)
-    }
+    let child = new MindMapItem({title: 'mvvm'})
+    child.parentId = parent.id
+    itemList.push(child)
+  }
+  {
+    let child = new MindMapItem({title: 'binder'})
+    child.parentId = parent.id
+    itemList.push(child)
+  }
+  {
+    let child = new MindMapItem({title: 'viewmodel'})
+    child.parentId = parent.id
+    itemList.push(child)
+  }
+  {
+    let child = new MindMapItem({title: 'action'})
+    child.parentId = parent.id
+    itemList.push(child)
   }
 
-  return result
+  return {
+    root: parent,
+    list: itemList
+  }
 }

@@ -8,6 +8,10 @@ function getUUID() {
 
 // ====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====
 
+export type PartialMindMap = {
+  root: MindMapItem
+  list: MindMapItem[]
+}
 export class MindMapItem {
 
   readonly id: number
