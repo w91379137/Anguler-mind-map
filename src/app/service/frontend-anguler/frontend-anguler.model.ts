@@ -1,10 +1,13 @@
 
 
-import { htmlList } from "./data/html_skill";
-import { rxjsList } from "./data/rxjs_skill";
-import { tsList } from "./data/ts_skill";
-import { workflow } from "./data/workflow_skill";
+import { WorkflowList } from "./data/workflow_skill";
 import { MindMapItem } from "./mind-map-item";
+import { gitList } from './data/git_skill';
+import { angulerList } from "./data/anguler_skill";
+import { classList } from "./data/class_skill";
+import { exampleList } from "./data/example_skill";
+import { DesignPatternList } from "./data/design_pattern_skill";
+import { DocList } from "./data/doc_skill";
 
 export class FrontendAngulerModel {
 
@@ -16,10 +19,16 @@ export function getItems(): MindMapItem[] {
 
   let result: MindMapItem[] = [];
 
-  result = result.concat(htmlList().list)
-  result = result.concat(tsList().list)
-  result = result.concat(rxjsList().list)
-  result = result.concat(workflow().list)
+  // 技巧
+  result = result.concat(gitList().list)
+  result = result.concat(angulerList().list)
+  result = result.concat(WorkflowList().list)
+  result = result.concat(DesignPatternList().list)
+  result = result.concat(DocList().list)
+
+  // 課程
+  result = result.concat(classList().list)
+  result = result.concat(exampleList().list)
 
   return result;
 }

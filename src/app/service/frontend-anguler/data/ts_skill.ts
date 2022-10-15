@@ -25,6 +25,11 @@ export function tsList(): PartialMindMap {
     let child = new MindMapItem({title: 'service'})
     child.parentId = parent.id
     itemList.push(child)
+
+    // api
+    // 翻譯系統
+    // 本地儲存
+    // 通知系統
   }
 
   return {
