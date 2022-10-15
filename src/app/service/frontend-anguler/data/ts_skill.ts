@@ -1,6 +1,6 @@
-import { MindMapItem, PartialMindMap } from "../mind-map-item";
+import { MindMapItem, MindMap } from "../mind-map-item";
 
-export function tsList(): PartialMindMap {
+export function tsList(): MindMap {
   // https://angular.io/cli/generate
   let itemList: MindMapItem[] = [];
 
@@ -32,8 +32,5 @@ export function tsList(): PartialMindMap {
     // 通知系統
   }
 
-  return {
-    root: parent,
-    list: itemList
-  }
+  return new MindMap(parent, itemList)
 }

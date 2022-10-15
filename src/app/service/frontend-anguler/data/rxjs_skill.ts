@@ -1,6 +1,6 @@
-import { MindMapItem, PartialMindMap } from "../mind-map-item";
+import { MindMapItem, MindMap } from "../mind-map-item";
 
-export function rxjsList(): PartialMindMap {
+export function rxjsList(): MindMap {
   // https://rxjs.dev/api
   let itemList: MindMapItem[] = [];
 
@@ -32,8 +32,5 @@ export function rxjsList(): PartialMindMap {
     itemList.push(child)
   }
 
-  return {
-    root: parent,
-    list: itemList
-  }
+  return new MindMap(parent, itemList)
 }

@@ -1,6 +1,6 @@
-import { MindMapItem, PartialMindMap } from "../mind-map-item";
+import { MindMapItem, MindMap } from "../mind-map-item";
 
-export function exampleList(): PartialMindMap {
+export function exampleList(): MindMap {
   let itemList: MindMapItem[] = [];
 
   let parent = new MindMapItem({title: 'example 範例'})
@@ -12,8 +12,5 @@ export function exampleList(): PartialMindMap {
     itemList.push(child)
   }
 
-  return {
-    root: parent,
-    list: itemList
-  }
+  return new MindMap(parent, itemList)
 }

@@ -1,7 +1,7 @@
 
-import { MindMapItem, PartialMindMap } from "../mind-map-item";
+import { MindMapItem, MindMap } from "../mind-map-item";
 
-export function DesignPatternList(): PartialMindMap {
+export function DesignPatternList(): MindMap {
   let itemList: MindMapItem[] = [];
 
   let parent = new MindMapItem({title: 'DesignPattern 設計模式'})
@@ -13,9 +13,6 @@ export function DesignPatternList(): PartialMindMap {
     itemList.push(child)
   }
 
-  return {
-    root: parent,
-    list: itemList
-  }
+  return new MindMap(parent, itemList)
 }
 

@@ -1,6 +1,6 @@
-import { MindMapItem, PartialMindMap } from "../mind-map-item";
+import { MindMapItem, MindMap } from "../mind-map-item";
 
-export function classList(): PartialMindMap {
+export function classList(): MindMap {
   let itemList: MindMapItem[] = [];
 
   let parent = new MindMapItem({title: 'class 課程編排'})
@@ -48,8 +48,5 @@ export function classList(): PartialMindMap {
     // 課題重要程度研究
   }
 
-  return {
-    root: parent,
-    list: itemList
-  }
+  return new MindMap(parent, itemList)
 }

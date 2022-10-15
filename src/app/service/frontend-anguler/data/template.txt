@@ -1,10 +1,13 @@
-import { MindMapItem, PartialMindMap } from "../mind-map-item";
+import { MindMapItem, MindMap } from "../mind-map-item";
 
-export function xxxList(): PartialMindMap {
+export function xxxList(): MindMap {
   let itemList: MindMapItem[] = [];
 
   let parent = new MindMapItem({title: 'xxx'})
   itemList.push(parent)
+
+  let result = new MindMap(parent, itemList)
+
   { // 一點
     let child = new MindMapItem({title: 'ooo'})
     child.parentId = parent.id
@@ -12,15 +15,8 @@ export function xxxList(): PartialMindMap {
     itemList.push(child)
   }
 
-  { // 一堆
-    let partial = htmlList()
-    let child = partial.root
-    child.parentId = parent.id
-    itemList.push(...partial.list)
-  }
+  // 一堆
+  result.connect(htmlList())
 
-  return {
-    root: parent,
-    list: itemList
-  }
+  return result
 }

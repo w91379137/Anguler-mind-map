@@ -7,11 +7,24 @@ function getUUID() {
 }
 
 // ====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====
+export class MindMap {
 
-export type PartialMindMap = {
-  root: MindMapItem
-  list: MindMapItem[]
+  constructor(
+    public root: MindMapItem,
+    public itemList: MindMapItem[],
+    ) { }
+
+  add(item: MindMapItem) {
+    item.parentId = this.root.id
+    this.itemList.push(item)
+  }
+
+  connect(mindMap: MindMap) {
+    mindMap.root.parentId = this.root.id
+    this.itemList.push(...mindMap.itemList)
+  }
 }
+
 export class MindMapItem {
 
   readonly id: number

@@ -1,6 +1,6 @@
-import { MindMapItem, PartialMindMap } from "../mind-map-item";
+import { MindMapItem, MindMap } from "../mind-map-item";
 
-export function WorkflowList(): PartialMindMap {
+export function WorkflowList(): MindMap {
   let itemList: MindMapItem[] = [];
 
   let parent = new MindMapItem({title: 'workflow'})
@@ -34,8 +34,5 @@ export function WorkflowList(): PartialMindMap {
 
   // 看不到的服務
 
-  return {
-    root: parent,
-    list: itemList
-  }
+  return new MindMap(parent, itemList)
 }

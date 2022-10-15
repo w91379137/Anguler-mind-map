@@ -20,15 +20,15 @@ export function getItems(): MindMapItem[] {
   let result: MindMapItem[] = [];
 
   // 技巧
-  result = result.concat(gitList().list)
-  result = result.concat(angulerList().list)
-  result = result.concat(WorkflowList().list)
-  result = result.concat(DesignPatternList().list)
-  result = result.concat(DocList().list)
+  result = result.concat(gitList().itemList)
+  result = result.concat(angulerList().itemList)
+  result = result.concat(WorkflowList().itemList)
+  result = result.concat(DesignPatternList().itemList)
+  result = result.concat(DocList().itemList)
 
   // 課程
-  result = result.concat(classList().list)
-  result = result.concat(exampleList().list)
+  result = result.concat(classList().itemList)
+  result = result.concat(exampleList().itemList)
 
   return result;
 }
