@@ -35,6 +35,12 @@ export function htmlList(): PartialMindMap {
     child.isChecked = true
     itemList.push(child)
   }
+  {
+    let child = new MindMapItem({title: 'ngTemplate'})
+    child.parentId = parent.id
+    child.isChecked = true
+    itemList.push(child)
+  }
 
   return {
     root: parent,
