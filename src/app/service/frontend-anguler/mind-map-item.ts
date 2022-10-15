@@ -11,8 +11,12 @@ export class MindMap {
 
   constructor(
     public root: MindMapItem,
-    public itemList: MindMapItem[],
-    ) { }
+    public itemList: MindMapItem[] = [],
+    ) {
+      if (!this.itemList.includes(this.root)) {
+        this.itemList.push(this.root)
+      }
+    }
 
   add(item: MindMapItem) {
     item.parentId = this.root.id

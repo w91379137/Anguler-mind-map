@@ -5,12 +5,10 @@ import { rxjsList } from './rxjs_skill';
 
 
 export function angulerList(): MindMap {
-  let itemList: MindMapItem[] = [];
 
-  let parent = new MindMapItem({title: 'anguler'})
-  itemList.push(parent)
+  let root = new MindMapItem({title: 'anguler'})
 
-  let result = new MindMap(parent, itemList)
+  let result = new MindMap(root)
   result.connect(htmlList())
   result.connect(tsList())
   result.connect(rxjsList())
