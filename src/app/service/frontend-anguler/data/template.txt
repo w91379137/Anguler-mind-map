@@ -1,0 +1,22 @@
+import { MindMapItem, MindMap } from "../mind-map-item";
+
+export function xxxList(): MindMap {
+  let itemList: MindMapItem[] = [];
+
+  let parent = new MindMapItem({title: 'xxx'})
+  itemList.push(parent)
+
+  let result = new MindMap(parent, itemList)
+
+  { // 一點
+    let child = new MindMapItem({title: 'ooo'})
+    child.parentId = parent.id
+    child.isChecked = false
+    itemList.push(child)
+  }
+
+  // 一堆
+  result.connect(htmlList())
+
+  return result
+}

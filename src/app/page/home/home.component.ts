@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { getItems, HomeViewModel } from './home.viewmodel';
+import { FrontendAngulerService } from 'src/app/service/frontend-anguler/frontend-anguler.service';
+import { MindMapItem } from 'src/app/service/frontend-anguler/mind-map-item';
+import { HomeViewModel } from './home.viewmodel';
 
 @Component({
   selector: 'app-home',
@@ -12,14 +14,30 @@ export class HomeComponent implements OnInit {
 
   // ====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====
 
-  constructor() {
-    this.viewModel.itemList = getItems()
+  constructor(
+    private frontendAnguler: FrontendAngulerService
+  ) {
+    this.allMap()
   }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void { }
+
+  // ====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====
+  // setup
+  allMap() {
+    this.viewModel.itemList = this.frontendAnguler.model.itemList
   }
 
   // ====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====
+  // action
+  onResetClicked() {
+    this.allMap()
+  }
 
+  onTitleClicked(item: MindMapItem) {
+    let map = this.frontendAnguler.model.map.sub(item.id)
+    if (map) {
+      this.viewModel.itemList = map.itemList
+    }
+  }
 }

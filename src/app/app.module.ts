@@ -4,17 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './page/home/home.component';
+import { MindMapComponent } from './page/mind-map/mind-map.component';
+import { FrontendAngulerService } from './service/frontend-anguler/frontend-anguler.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    MindMapComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [FrontendAngulerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
