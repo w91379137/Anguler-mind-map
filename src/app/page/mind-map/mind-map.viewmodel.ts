@@ -1,6 +1,7 @@
 import { MindMapItem } from "src/app/service/frontend-anguler/mind-map-item";
 
-const ItemGap = 200
+const LayerGap = 200
+const ItemGap = 10
 export class MindMapItemViewModel {
 
   // 有一個 item
@@ -113,14 +114,34 @@ export class MindMapViewModel {
       let parent = this.itemVMList.find(itemVM => itemVM.id === child.item.parentId)
       if (parent) {
         let mid = child.mid_theta
-        child.x = parent.x + Math.cos(Math.PI / 180 * mid) * ItemGap
-        child.y = parent.y + Math.sin(Math.PI / 180 * mid) * ItemGap
+        child.x = parent.x + Math.cos(Math.PI / 180 * mid) * LayerGap
+        child.y = parent.y + Math.sin(Math.PI / 180 * mid) * LayerGap
       }
     })
 
-    // 分散 位移
+    this.spread()
 
     // 中心 位移
+  }
+
+  spread() {
+// 分散 位移
+for (let x = 0; x < this.itemVMList.length; x++) {
+  const itemVM = this.itemVMList[x];
+  for (let y = 0; y < x; y++) {
+    // 前輩
+    const otherItemVM = this.itemVMList[y];
+    let x_gap = itemVM.x - otherItemVM.x
+    let x_gap_abs = Math.abs(x_gap)
+    let y_gap = itemVM.y - otherItemVM.y
+    let y_gap_abs = Math.abs(y_gap)
+    let gap = Math.sqrt(Math.pow(x_gap, 2) + Math.pow(y_gap, 2))
+    if (gap < ItemGap) {
+      itemVM.x = otherItemVM.x + x_gap / x_gap_abs * ItemGap
+      itemVM.y = otherItemVM.y + y_gap / y_gap_abs * ItemGap
+    }
+  }
+}
   }
 }
 
