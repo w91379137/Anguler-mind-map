@@ -1,1 +1,15 @@
-<p>mind-map works!</p>
+
+<div style="position: relative;">
+
+  <ng-container *ngFor="let itemVM of viewModel.itemVMList">
+
+    <div
+      style="position: absolute;"
+      [ngStyle]="{'left': itemVM.x + 'px', 'top': itemVM.y + 'px' }"
+    >
+      {{ itemVM.item.title }}
+    </div>
+
+  </ng-container>
+
+</div>
