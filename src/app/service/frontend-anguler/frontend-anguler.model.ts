@@ -11,7 +11,7 @@ import { DocList } from "./data/doc_skill";
 
 export class FrontendAngulerModel {
 
-  private map: MindMap
+  public map: MindMap
 
   // ====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====
 
@@ -33,7 +33,7 @@ export class FrontendAngulerModel {
 
   // ====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====
 
-  get items(): MindMapItem[] {
+  get itemList(): MindMapItem[] {
     return this.map.itemList
   }
 }

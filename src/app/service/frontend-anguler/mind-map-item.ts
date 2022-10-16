@@ -27,6 +27,33 @@ export class MindMap {
     mindMap.root.parentId = this.root.id
     this.itemList.push(...mindMap.itemList)
   }
+
+  sub(root_id: number, loop: number = 6): MindMap | undefined {
+
+    let root = this.itemList.find(item => item.id === root_id)
+    if (!root) {
+      return
+    }
+
+    let result = new MindMap(root)
+    let child_id: number[] = [root_id]
+    let checkList = this.itemList.slice(0) // 剩下的
+    for (let index = 0; index < loop; index++) {
+      let newCheckList = []
+      checkList.forEach(item => {
+        if (child_id.includes(item.parentId)) {
+          // 是子孫
+          child_id.push(item.id)
+          result.itemList.push(item)
+        }
+        else {
+          newCheckList.push(item)
+        }
+      })
+      checkList = newCheckList
+    }
+    return result
+  }
 }
 
 export class MindMapItem {

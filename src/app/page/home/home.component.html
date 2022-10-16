@@ -1,10 +1,11 @@
 
-
+<button (click)="onResetClicked()">恢復</button>
+<hr>
 <ng-container *ngFor="let item of viewModel.itemList; let i=index">
 
-  <hr *ngIf="viewModel.levelOf(item) === 0">
+  <hr *ngIf="viewModel.levelOf(item) === 1">
   <label>{{ "＞".repeat(viewModel.levelOf(item)) }}</label>
-  <label>{{ item.title }}</label>
+  <button (click)="onTitleClicked(item)">{{ item.title }}</button>
   <label *ngIf="item.isChecked">[O]</label>
   <label *ngIf="!item.isChecked">[X]</label>
   <br>
