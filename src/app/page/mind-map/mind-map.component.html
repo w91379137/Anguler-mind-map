@@ -3,13 +3,17 @@
 
   <ng-container *ngFor="let itemVM of viewModel.itemVMList">
 
-    <div
+    <button
+      (click)="onItemClicked(itemVM)"
       style="position: absolute;"
-      [ngStyle]="{'left': itemVM.x + 'px', 'top': itemVM.y + 'px' }"
+      [ngStyle]="{'left': itemVM.x + 'px', 'top': itemVM.y + 'px', 'transform': 'rotate(' + itemVM.view_theta + 'deg)' }"
     >
       {{ itemVM.item.title }}
-      <!-- {{ itemVM.childCount }} -->
-    </div>
+      <!-- <br>{{ itemVM.childCount }}| -->
+      <!-- <br>{{ itemVM.start_theta }}| -->
+      <!-- <br>{{ itemVM.end_theta }}| -->
+      <!-- <br>{{ itemVM.use_theta }}| -->
+    </button>
 
   </ng-container>
 

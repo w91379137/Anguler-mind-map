@@ -29,5 +29,8 @@ export class MindMapComponent implements OnInit {
   }
 
   // ====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====
-
+  // action
+  onItemClicked(itemVM: MindMapItemViewModel) {
+    console.log(itemVM)
+  }
 }
