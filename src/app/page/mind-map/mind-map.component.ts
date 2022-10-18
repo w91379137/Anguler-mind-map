@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MindMapViewModel } from './mind-map.viewmodel';
+import { FrontendAngulerService } from 'src/app/service/frontend-anguler/frontend-anguler.service';
+import { MindMapItemViewModel, MindMapViewModel } from './mind-map.viewmodel';
 
 @Component({
   selector: 'app-mind-map',
@@ -12,10 +13,24 @@ export class MindMapComponent implements OnInit {
 
   // ====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====
 
-  constructor() { }
+  constructor(
+    private frontendAnguler: FrontendAngulerService
+  ) {
+    this.allMap()
+  }
 
   ngOnInit(): void { }
 
   // ====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====
+  // setup
+  allMap() {
+    this.viewModel.itemVMList = this.frontendAnguler.model.itemList.map(item => new MindMapItemViewModel(item))
+    this.viewModel.updatePosition(this.frontendAnguler.model.map.root.id)
+  }
 
+  // ====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====
+  // action
+  onItemClicked(itemVM: MindMapItemViewModel) {
+    console.log(itemVM)
+  }
 }
