@@ -1,12 +1,16 @@
 import { MindMapItem, MindMap } from "../mind-map-item";
+import { fileList } from './file_skill';
 
 export function WorkflowList(): MindMap {
-  let itemList: MindMapItem[] = [];
 
+  let itemList: MindMapItem[] = [];
   let parent = new MindMapItem({title: 'workflow'})
 
-  // 看得到的畫面
-  itemList.push(parent)
+  let result = new MindMap(parent, itemList)
+
+  {
+    result.connect(fileList())
+  }
   {
     let child = new MindMapItem({title: 'mvvm'})
     child.parentId = parent.id

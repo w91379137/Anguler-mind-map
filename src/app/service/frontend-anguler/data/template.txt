@@ -1,9 +1,10 @@
 import { MindMapItem, MindMap } from "../mind-map-item";
 
 export function xxxList(): MindMap {
-  let itemList: MindMapItem[] = [];
 
   let parent = new MindMapItem({title: 'xxx'})
+
+  let itemList: MindMapItem[] = [];
   itemList.push(parent)
 
   let result = new MindMap(parent, itemList)

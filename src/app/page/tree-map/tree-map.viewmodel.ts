@@ -1,6 +1,6 @@
 import { MindMapItem } from "src/app/service/frontend-anguler/mind-map-item";
 
-export class HomeViewModel {
+export class TreeMapViewModel {
 
   itemList: MindMapItem[] = [];
 

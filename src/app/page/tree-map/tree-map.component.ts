@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FrontendAngulerService } from 'src/app/service/frontend-anguler/frontend-anguler.service';
 import { MindMapItem } from 'src/app/service/frontend-anguler/mind-map-item';
-import { HomeViewModel } from './home.viewmodel';
+import { TreeMapViewModel } from './tree-map.viewmodel';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-tree-map',
+  templateUrl: './tree-map.component.html',
+  styleUrls: ['./tree-map.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class TreeMapComponent implements OnInit {
 
-  viewModel = new HomeViewModel()
+  viewModel = new TreeMapViewModel()
 
   // ====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====
 
