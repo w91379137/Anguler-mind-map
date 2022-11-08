@@ -29,6 +29,14 @@ export class HomeComponent implements OnInit {
   }
 
   // ====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====
+  // present
+  get markdown() {
+    let item = this.viewModel.itemList[0]
+    let result = item.markdown
+    return result
+  }
+
+  // ====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====
   // action
   onResetClicked() {
     this.allMap()
