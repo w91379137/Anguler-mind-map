@@ -4,7 +4,7 @@ import { MindMapItem, MindMap } from "../mind-map-item";
 export function gitList(): MindMap {
   let itemList: MindMapItem[] = [];
 
-  let parent = new MindMapItem({title: 'git'})
+  let parent = new MindMapItem({title: 'git', markdown: '/assets/md/git.md'})
   itemList.push(parent)
   {
     let child = new MindMapItem({title: 'commit'})

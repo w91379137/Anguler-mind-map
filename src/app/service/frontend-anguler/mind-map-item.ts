@@ -62,6 +62,7 @@ export class MindMapItem {
 
   parentId = -1;
   title = '';
+  markdown = '';
   isChecked = false;
 
   // ====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====.====
@@ -69,14 +70,17 @@ export class MindMapItem {
   constructor(
     {
       title = '',
+      markdown = '',
       isChecked = false
     }:
     {
       title?: string,
+      markdown?: string,
       isChecked?: boolean,
     }) {
       this.id = getUUID();
       this.title = title;
+      this.markdown = markdown;
       this.isChecked = isChecked;
   }
 
