@@ -7,21 +7,27 @@ export function gitList(): MindMap {
   let parent = new MindMapItem({title: 'git', markdown: '/assets/md/git.md'})
   itemList.push(parent)
   {
+    let child = new MindMapItem({title: 'git_tutorial', markdown: '/assets/md/git_tutorial.md'})
+    child.parentId = parent.id
+    child.isChecked = true
+    itemList.push(child)
+  }
+  {
     let child = new MindMapItem({title: 'commit'})
     child.parentId = parent.id
-    child.isChecked = false
+    child.isChecked = true
     itemList.push(child)
   }
   {
     let child = new MindMapItem({title: 'push'})
     child.parentId = parent.id
-    child.isChecked = false
+    child.isChecked = true
     itemList.push(child)
   }
   {
     let child = new MindMapItem({title: 'pull'})
     child.parentId = parent.id
-    child.isChecked = false
+    child.isChecked = true
     itemList.push(child)
   }
   {

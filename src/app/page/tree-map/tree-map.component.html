@@ -7,9 +7,9 @@
   <hr *ngIf="viewModel.levelOf(item) === 1">
   <label>{{ "＞".repeat(viewModel.levelOf(item)) }}</label>
   <button (click)="onTitleClicked(item)">{{ item.title }}</button>
-  <label *ngIf="item.markdown">[M]</label>
-  <label *ngIf="item.isChecked">[O]</label>
-  <label *ngIf="!item.isChecked">[X]</label>
+  <label *ngIf="item.markdown" style="background-color:aqua;">[M]</label>
+  <label *ngIf="item.isChecked" style="background-color:blueviolet;">[O]</label>
+  <label *ngIf="!item.isChecked" style="background-color:chartreuse;">[X]</label>
   <br>
 
 </ng-container>
