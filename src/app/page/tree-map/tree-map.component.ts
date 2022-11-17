@@ -42,6 +42,18 @@ export class TreeMapComponent implements OnInit {
     this.allMap()
   }
 
+  onParentClicked() {
+    // this.allMap()
+    let item = this.viewModel.itemList[0]
+    let parentId = item.parentId
+    if (parentId) {
+      let map = this.frontendAnguler.model.map.sub(parentId)
+      if (map) {
+        this.viewModel.itemList = map.itemList
+      }
+    }
+  }
+
   onTitleClicked(item: MindMapItem) {
     let map = this.frontendAnguler.model.map.sub(item.id)
     if (map) {
