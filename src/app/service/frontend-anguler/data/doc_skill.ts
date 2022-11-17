@@ -6,9 +6,9 @@ export function DocList(): MindMap {
   let parent = new MindMapItem({title: 'doc 文件'})
   itemList.push(parent)
   { // 一點
-    let child = new MindMapItem({title: 'markdown 格式'})
+    let child = new MindMapItem({title: 'markdown 格式', markdown: '/assets/md/markdown.md'})
     child.parentId = parent.id
-    child.isChecked = false
+    child.isChecked = true
     itemList.push(child)
   }
 

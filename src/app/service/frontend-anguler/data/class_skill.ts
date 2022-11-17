@@ -26,9 +26,9 @@ export function classList(): MindMap {
     // 給新的作業
   }
   { // 一點
-    let child = new MindMapItem({title: '作業階段'})
+    let child = new MindMapItem({title: '作業階段', markdown: '/assets/md/homework.md'})
     child.parentId = parent.id
-    child.isChecked = false
+    child.isChecked = true
     itemList.push(child)
     // 一個小東西做為修改
   }

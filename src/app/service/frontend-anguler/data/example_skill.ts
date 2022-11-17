@@ -8,6 +8,12 @@ export function exampleList(): MindMap {
   { // 一點
     let child = new MindMapItem({title: '顏色選擇'})
     child.parentId = parent.id
+    child.isChecked = true
+    itemList.push(child)
+  }
+  { // 一點
+    let child = new MindMapItem({title: '卡片製作'})
+    child.parentId = parent.id
     child.isChecked = false
     itemList.push(child)
   }

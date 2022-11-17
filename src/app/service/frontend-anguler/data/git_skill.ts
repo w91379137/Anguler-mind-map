@@ -13,19 +13,19 @@ export function gitList(): MindMap {
     itemList.push(child)
   }
   {
-    let child = new MindMapItem({title: 'commit'})
+    let child = new MindMapItem({title: 'commit', markdown: '/assets/md/commit.md'})
     child.parentId = parent.id
     child.isChecked = true
     itemList.push(child)
   }
   {
-    let child = new MindMapItem({title: 'push'})
+    let child = new MindMapItem({title: 'push', markdown: '/assets/md/push.md'})
     child.parentId = parent.id
     child.isChecked = true
     itemList.push(child)
   }
   {
-    let child = new MindMapItem({title: 'pull'})
+    let child = new MindMapItem({title: 'pull', markdown: '/assets/md/pull.md'})
     child.parentId = parent.id
     child.isChecked = true
     itemList.push(child)

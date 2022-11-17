@@ -4,6 +4,7 @@ export function htmlList(): MindMap {
   let itemList: MindMapItem[] = [];
 
   let parent = new MindMapItem({title: 'html'})
+  parent.isChecked = true
   itemList.push(parent)
 
   let result = new MindMap(parent, itemList)
