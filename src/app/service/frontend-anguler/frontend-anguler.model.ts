@@ -19,6 +19,7 @@ export class FrontendAngulerModel {
     let root = new MindMapItem({title: 'frontend_anguler'})
     this.map = new MindMap(root)
     { // 技巧
+      // nvm
       this.map.connect(gitList())
       this.map.connect(angulerList())
       this.map.connect(WorkflowList())
